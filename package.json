@@ -1,0 +1,34 @@
+{
+  "name": "11-final",
+  "version": "1.0.0",
+  "description": "INF653- Final Project- David Kim",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davki54321/INF653_Final_Project.git"
+  },
+  "author": "David Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davki54321/INF653_Final_Project/issues"
+  },
+  "homepage": "https://github.com/davki54321/INF653_Final_Project#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "date-fns": "^2.23.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.21.2",
+    "mongoose": "^6.13.8",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
