@@ -7,16 +7,9 @@
     "start": "node server",
     "dev": "nodemon server"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/davki54321/INF653_Final_Project.git"
-  },
   "author": "David Kim",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/davki54321/INF653_Final_Project/issues"
-  },
-  "homepage": "https://github.com/davki54321/INF653_Final_Project#readme",
+  "bugs": {},
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
