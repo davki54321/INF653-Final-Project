@@ -6,14 +6,8 @@ data.states = require('../model/statesData.json');
 
 const validateStatesFromJson = async (req, res, next) => {
 
-    const code = req.params.state.toUpperCase();
-
-    // If a valid state code was given, the variable 'state' will contain the state's fun facts.
-    const stateFromDb = await State.findOne({ stateCode: code }).exec();
-
-    // If an invalid state code was given, then status 204 is returned.
-    if (!stateFromDb) {
-        return res.status(400).json({ 'message': 'Invalid state abbreviation parameter' });
+    if (!data.states) {
+        return res.status(204).json({ 'message': 'No states found.' });
     }
 
     next();

@@ -18,7 +18,8 @@ router.route('/:state')
 
 // Handles URLs that have a two letter abbreviation and funfact in the URL.
 router.route('/:state/funfact')
-    .get(validate.validateFunFactsFromJson, 
+    .get(validate.validateStateFromJson,
+        validate.validateFunFactsFromJson, 
         statesController.getFunFact)
 
     .post(validate.validateStateFromJson, 
