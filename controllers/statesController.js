@@ -63,7 +63,7 @@ const getAllStates = async (req, res) => {
 const getFunFact = async (req, res) => {
 
     // The variable 'code' contains the state code (abbrevation) from the URL.
-    const code = req.params.state.toUpperCase();
+    const code = await req.params.state.toUpperCase();
 
     // If a valid state code was given, the variable 'state' will contain the state's fun facts.
     const state = await State.findOne({ stateCode: code }).exec();
@@ -81,7 +81,7 @@ const getFunFact = async (req, res) => {
 const addFunFact = async (req, res) => {
 
     // The 'code' variable contains the state code (abbrevation) from the URL.
-    const code = req.params.state.toUpperCase();
+    const code = await req.params.state.toUpperCase();
 
     // If a valid state code was given, the variable 'state' will contain the state's fun facts.
     const state = await State.findOne({ stateCode: code }).exec();
@@ -107,7 +107,7 @@ const addFunFact = async (req, res) => {
 const deleteFunFact = async (req, res) => {
 
     // The variable 'code' contains the state code (abbrevation) from the URL.
-    const code = req.params.state.toUpperCase();
+    const code = await req.params.state.toUpperCase();
 
     // If a valid state code was given, the variable 'state' will contain the state's fun facts.
     const state = await State.findOne({ stateCode: code }).exec();
@@ -131,7 +131,7 @@ const deleteFunFact = async (req, res) => {
 const getState = async (req, res) => {
 
     // Gets the state code (state 2 letter abbreviation) from the URL and makes it uppercase.
-    const code = req.params.state.toUpperCase();
+    const code = await req.params.state.toUpperCase();
 
     // If a valid state code was given, the variable 'state' will contain the state's fun facts.
     const stateFromDb = await State.findOne({ stateCode: code }).exec();
@@ -153,7 +153,7 @@ const getState = async (req, res) => {
 const getCapital = async (req, res) => {
 
     // Gets the state code (state 2 letter abbreviation) and makes it uppercase
-    const code = req.params.state.toUpperCase();
+    const code = await req.params.state.toUpperCase();
 
     // Finds the state information the JSON file.
     const stateFromJson = data.states.find(stateObj => stateObj.code === code);
@@ -167,7 +167,7 @@ const getCapital = async (req, res) => {
 const getNickname = async (req, res) => {
 
     // Gets the state code (state 2 letter abbreviation) and makes it uppercase
-    const code = req.params.state.toUpperCase();
+    const code = await req.params.state.toUpperCase();
 
     // Finds the state information the JSON file.
     const stateFromJson = data.states.find(stateObj => stateObj.code === code);
@@ -181,7 +181,7 @@ const getNickname = async (req, res) => {
 const getPopulation = async (req, res) => {
 
     // Gets the state code (state 2 letter abbreviation) and makes it uppercase
-    const code = req.params.state.toUpperCase();
+    const code = await req.params.state.toUpperCase();
 
     // Finds the state information the JSON file.
     const stateFromJson = data.states.find(stateObj => stateObj.code === code);
@@ -195,7 +195,7 @@ const getPopulation = async (req, res) => {
 const getAdmission = async (req, res) => {
 
     // Gets the state code (state 2 letter abbreviation) and makes it uppercase
-    const code = req.params.state.toUpperCase();
+    const code = await req.params.state.toUpperCase();
 
     // Finds the state information the JSON file.
     const stateFromJson = data.states.find(stateObj => stateObj.code === code);
@@ -209,7 +209,7 @@ const getAdmission = async (req, res) => {
 const updateFunFact = async (req, res) => {
 
     // The variable 'code' contains the state code (abbrevation) from the URL.
-    const code = req.params.state.toUpperCase();
+    const code = await req.params.state.toUpperCase();
 
     // If a valid state code was given, the variable 'state' will contain the state's fun facts.
     const state = await State.findOne({ stateCode: code }).exec();
@@ -228,7 +228,7 @@ const updateFunFact = async (req, res) => {
 // // This function was used to populate the DB during testing. This was faster than manually entering data into the DB.
 // const createNewState = async (req, res) => {
 
-//     const code = req.params.state.toUpperCase();
+//     const code = await req.params.state.toUpperCase();
 
 //     // If no state code is entered or the code has an invalid length, status 400 is returned.
 //     if (!code || code.length !== 2) {

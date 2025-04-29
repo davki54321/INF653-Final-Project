@@ -6,10 +6,10 @@ data.states = require('../model/statesData.json');
 
 const validateStatesFromJson = async (req, res, next) => {
 
+    // If there are no states in the JSON file, status 204 is returned.
     if (!data.states) {
         return res.status(204).json({ 'message': 'No states found.' });
     }
-
     next();
 }
 
@@ -33,17 +33,16 @@ const validateFunFactsFromJson = async (req, res, next) => {
 
     // If the state does not have any fun facts, status 400 is sent.
     if (funFacts.length === 0) {
-
+        // Gets the state information from the JSON file.
         const stateFromJson = await data.states.find(stateObj => stateObj.code === code);
         return res.status(404).json({ 'message': `No Fun Facts found for ${stateFromJson.state}` });
     }
-
     next();
 }
 
 const validateFunFactsFromBody = async (req, res, next) => {
     
-    // This is the array of new fun facts to be added.
+    // The fun facts from the body of the request are stored in this variable.
     const newFunFacts = req.body.funfacts;
 
     // If no fun facts were in the body, then status 400 is sent.
@@ -55,7 +54,6 @@ const validateFunFactsFromBody = async (req, res, next) => {
     if(!Array.isArray(newFunFacts)) {
         return res.status(400).json({'message': "State fun facts value must be an array"});
     }
-
     next();
 }
 
@@ -74,7 +72,7 @@ const validateIndexFromBody = async (req, res, next) => {
 
 const validateIndexExistsInJson = async (req, res, next) => {
 
-    const code = req.params.state.toUpperCase();
+    const code = await req.params.state.toUpperCase();
     const state = await State.findOne({ stateCode: code }).exec();
     const index = await req.body.index;
 
